@@ -45,6 +45,7 @@ int main(void){
         //printf("%c %d %d\n", str[0], px, py);
         if(px<0 || w<=px || py<0 || h<=py){
             printf("invalid\n");
+            return 0;
         }
     }
     printf("valid\n");
