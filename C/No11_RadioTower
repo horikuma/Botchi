@@ -1,19 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int main(void)
 {
     char str[1000];
     fgets(str, sizeof(str), stdin);
     fgets(str, sizeof(str), stdin);
     int i=0,successCount=0;
+    char temp[5]={0};
     while(1){
         char c=str[i++];
-        if(c=='\n'){
-            break;
-        }
-        if('6'<=c && c<='9'){
-            successCount++;
+        if(c=='\n' || c==' '){
+            int n=atoi(temp);
+            if(6<=n && n<=10){
+                successCount++;
+            }
+            memset(temp, 0, sizeof(temp));
+            if(c=='\n'){
+                break;
+            }
+        }else{
+            temp[strlen(temp)]=c;
         }
     }
-    printf("%d", successCount);
+    printf("%d\n", successCount);
     return 0;
 }
